@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank You, Khush Bhaiya ❤️</title>
+<style>
+/* ===== BASIC SETUP & COLORS ===== */
+:root{--gold:#ffd76a;--pink:#ff4fa3;--violet:#8b5cf6;--blue:#38bdf8}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,Arial,sans-serif;color:#fff;line-height:1.6;overflow-x:hidden;
+  background:linear-gradient(135deg,#1b0638,#3b0f6b,#0f2a6b,#5a0f4f);background-size:400% 400%;animation:bg 18s ease infinite}
+body.lock{overflow:hidden}
+@keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+h1,h2{font-family:Georgia,"Times New Roman",serif}
+section{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px 20px;text-align:center}
+.gold{background:linear-gradient(90deg,var(--gold),var(--pink),var(--blue),var(--gold));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+
+/* ===== GLASS CARD & GLOWING BUTTON ===== */
+.glass{background:rgba(255,255,255,.09);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.25);border-radius:24px;box-shadow:0 8px 40px rgba(139,92,246,.35)}
+.btn{border:none;cursor:pointer;color:#fff;font-weight:700;font-size:16px;padding:15px 30px;border-radius:50px;margin-top:26px;
+  background:linear-gradient(90deg,var(--violet),var(--pink),var(--gold));background-size:200% 100%;
+  box-shadow:0 0 20px rgba(255,79,163,.7);transition:.3s;animation:glow 2s ease-in-out infinite}
+.btn:hover{transform:translateY(-4px) scale(1.06);background-position:100% 0}
+.btn:active{transform:scale(.96)}
+@keyframes glow{50%{box-shadow:0 0 38px rgba(255,215,106,.9)}}
+
+/* ===== CINEMATIC INTRO ===== */
+#intro{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;
+  background:radial-gradient(circle at 50% 40%,#2a0a55,#05010d);transition:opacity 1s}
+#intro.hide{opacity:0;pointer-events:none}
+.il{opacity:0;animation:fadeUp 1.6s ease forwards}
+.il1{font-size:clamp(14px,3.5vw,20px);letter-spacing:3px;color:#e0c8ff;animation-delay:.6s}
+.il2{font-size:clamp(26px,7vw,52px);margin-top:22px;animation-delay:3.2s}
+#intro .btn{opacity:0;animation:fadeUp 1.2s ease 5.6s forwards,glow 2s ease-in-out 6.8s infinite}
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+
+/* ===== MAIN SITE ===== */
+main{opacity:0;transition:opacity 1.2s}
+main.show{opacity:1}
+.rv{opacity:0;transform:translateY(40px);transition:1s ease}
+.rv.in{opacity:1;transform:none}
+
+/* hero */
+#hero h1{font-size:clamp(34px,9vw,76px);margin-bottom:12px}
+#hero p{font-size:clamp(16px,4vw,22px);color:#f1dcff;max-width:520px}
+.heart{font-size:clamp(80px,22vw,130px);margin:20px 0 0;display:inline-block;animation:beat 1.2s ease-in-out infinite;filter:drop-shadow(0 0 25px #ff4fa3)}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
+
+/* message */
+#msg h2,#cards h2,#secret h2{font-size:clamp(26px,6vw,42px);margin-bottom:24px}
+#msgbox{max-width:680px;width:100%;padding:30px 24px;text-align:left;font-size:clamp(15px,3.8vw,18px);cursor:pointer}
+#msgbox p{margin-bottom:6px;animation:fadeUp .6s ease}
+.cur{display:inline-block;width:2px;height:1.1em;background:var(--gold);vertical-align:-3px;margin-left:2px;animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hint{font-size:12px;color:#cbb3ee;margin-top:10px}
+
+/* three cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;max-width:900px;width:100%}
+.card{padding:32px 22px;transition:.4s}
+.card .ic{font-size:54px;display:block;margin-bottom:12px;transition:.5s}
+.card h3{color:var(--gold);margin-bottom:8px;letter-spacing:1px}
+.card:hover{transform:translateY(-12px) scale(1.04);box-shadow:0 0 45px rgba(255,79,163,.7);border-color:var(--gold)}
+.card:hover .ic{transform:scale(1.3) rotate(-10deg)}
+
+/* envelope */
+.env{position:relative;width:min(280px,80vw);height:180px;margin:10px auto;background:linear-gradient(#f9b7da,#f58bc0);border-radius:10px;box-shadow:0 10px 40px rgba(255,79,163,.5)}
+.env .paper{position:absolute;left:12px;right:12px;top:12px;bottom:12px;background:#fff6e0;border-radius:6px;z-index:1;transition:transform .9s .5s}
+.env .front{position:absolute;inset:0;z-index:2;background:linear-gradient(#ff9ccb,#ff7ab8);border-radius:10px;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%)}
+.env .flap{position:absolute;left:0;top:0;width:100%;height:100%;z-index:3;background:#ff7ab8;clip-path:polygon(0 0,100% 0,50% 60%);transform-origin:top;transition:transform .8s,z-index 0s .4s}
+.env .seal{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);z-index:4;font-size:34px;transition:opacity .4s}
+.env.open .flap{transform:rotateX(180deg);z-index:0}
+.env.open .paper{transform:translateY(-55px)}
+.env.open .seal{opacity:0}
+#letter{max-width:620px;width:100%;text-align:left;padding:0 24px;max-height:0;overflow:hidden;opacity:0;transition:max-height 1.4s ease,opacity 1s,padding 1s,margin 1s;font-size:clamp(15px,3.8vw,18px)}
+#letter.open{max-height:900px;opacity:1;padding:28px 24px;margin-top:36px}
+#letter p{margin-bottom:14px}
+
+/* finale */
+#finale h2{font-size:clamp(26px,6.5vw,48px)}
+#final{max-width:640px;margin-top:30px;padding:0 24px;max-height:0;overflow:hidden;opacity:0;transition:max-height 1.5s,opacity 1.2s,padding 1s;font-size:clamp(16px,4.2vw,22px)}
+#final.open{max-height:900px;opacity:1;padding:34px 24px}
+#final p{margin-bottom:16px;opacity:0;animation:fadeUp 1s ease forwards}
+#final .big{font-family:Georgia,serif;font-size:1.2em}
+footer{position:relative;z-index:2;text-align:center;padding:20px;font-size:13px;color:#cbb3ee}
+
+/* floating hearts, stars & confetti (made by JavaScript) */
+.fl{position:fixed;bottom:-40px;pointer-events:none;z-index:1;opacity:.75;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+.cf{position:fixed;top:-20px;width:10px;height:14px;z-index:200;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(720deg)}}
+
+/* ===== ACCESSIBILITY: reduced motion ===== */
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .il,#intro .btn,.rv,#final p{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body class="lock">
+
+<!-- ===== CINEMATIC INTRO ===== -->
+<div id="intro">
+  <p class="il il1">MADE SOMETHING SPECIAL FOR SOMEONE SPECIAL...</p>
+  <h1 class="il il2 gold">FOR MY BIG BROTHER, KHUSH ❤️</h1>
+  <button class="btn" id="openBtn">OPEN YOUR SURPRISE 🎁</button>
+</div>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <h1 class="gold">HEY KHUSH BHAIYA! ❤️</h1>
+    <p>Ye chhoti si website aapke liye, from your little brother Daksh.</p>
+    <div class="heart">❤️</div>
+    <button class="btn" id="talkBtn">EK BAAT BOLNI HAI 🥹</button>
+  </section>
+
+  <!-- ===== PERSONAL THANK-YOU MESSAGE (typewriter) ===== -->
+  <section id="msg">
+    <h2 class="gold rv">Ek Chhota Sa Message 💌</h2>
+    <div id="msgbox" class="glass rv"></div>
+    <p class="hint rv">(Tap karke typing skip kar sakte ho)</p>
+  </section>
+
+  <!-- ===== WHAT KHUSH BHAIYA TAUGHT ME ===== -->
+  <section id="cards">
+    <h2 class="gold rv">What Khush Bhaiya Taught Me</h2>
+    <div class="grid">
+      <div class="card glass rv"><span class="ic">💻</span><h3>A NEW SKILL</h3><p>Khush Bhaiya taught me how to create websites.</p></div>
+      <div class="card glass rv"><span class="ic">🚀</span><h3>A NEW BEGINNING</h3><p>He helped me discover something new and exciting.</p></div>
+      <div class="card glass rv"><span class="ic">❤️</span><h3>CONFIDENCE</h3><p>He inspired me to keep learning and creating.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== SECRET LETTER (envelope) ===== -->
+  <section id="secret">
+    <h2 class="gold rv">Ek Secret Letter 🤫</h2>
+    <div class="env rv" id="env"><div class="paper"></div><div class="front"></div><div class="flap"></div><div class="seal">💌</div></div>
+    <button class="btn" id="letterBtn">OPEN YOUR SECRET LETTER 💌</button>
+    <div id="letter" class="glass">
+      <p>Khush Bhaiya, aapko shayad ye ek chhoti si website lage, but mere liye ye aapko thank you bolne ka ek special tareeka hai.</p>
+      <p>Aapne mujhe website banana sikhaya, aur ab main apne ideas ko khud create karne ki koshish kar sakta hoon.</p>
+      <p>Thank you for helping me take my first step into this amazing world of website development.</p>
+      <p>Aap best ho, Bhaiya! ❤️</p>
+      <p style="color:var(--gold)">— Daksh</p>
+    </div>
+  </section>
+
+  <!-- ===== GRAND FINALE ===== -->
+  <section id="finale">
+    <h2 class="gold rv">ONE LAST THING, KHUSH BHAIYA... ❤️</h2>
+    <button class="btn" id="bestBtn">YOU ARE THE BEST BHAIYA 🥹</button>
+    <div id="final" class="glass">
+      <p class="big">THANK YOU FOR TEACHING ME.</p>
+      <p class="big">THANK YOU FOR INSPIRING ME.</p>
+      <p class="big">THANK YOU FOR BEING MY BHAIYA.</p>
+      <p>THIS LITTLE WEBSITE IS MY GIFT TO YOU.</p>
+      <p class="gold big">MADE WITH LOVE BY DAKSH,<br>FOR KHUSH BHAIYA. ❤️</p>
+    </div>
+  </section>
+
+</main>
+<footer>Made with ❤️ by Daksh</footer>
+
+<script>
+/* ===== HELPERS ===== */
+// Kya user ne "reduced motion" on kiya hai? (accessibility)
+const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = id => document.getElementById(id);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const rand = (a, b) => Math.random() * (b - a) + a;
+const pick = list => list[Math.floor(Math.random() * list.length)];
+
+/* ===== FLOATING HEARTS & STARS ===== */
+function floatItem(list) {
+  if (RM) return;
+  const e = document.createElement("div");
+  e.className = "fl";
+  e.textContent = pick(list);
+  e.style.left = rand(0, 95) + "vw";
+  e.style.fontSize = rand(16, 36) + "px";
+  e.style.animationDuration = rand(7, 13) + "s";
+  document.body.appendChild(e);
+  setTimeout(() => e.remove(), 13500);
+}
+function burst(n) { for (let i = 0; i < n; i++) setTimeout(() => floatItem(["❤️","💖","💜","⭐","✨","🌟","💛"]), i * 60); }
+let ambient = setInterval(() => floatItem(["❤️","💖","✨","⭐","💜","·"]), 1100);
+
+/* ===== CONFETTI ===== */
+function confetti(n) {
+  if (RM) return;
+  const colors = ["#ff4fa3","#8b5cf6","#38bdf8","#ffd76a","#00ff88","#ff8c00"];
+  for (let i = 0; i < n; i++) {
+    const c = document.createElement("div");
+    c.className = "cf";
+    c.style.left = rand(0, 100) + "vw";
+    c.style.background = pick(colors);
+    c.style.setProperty("--dx", rand(-120, 120) + "px");
+    c.style.animationDuration = rand(2.5, 5) + "s";
+    c.style.animationDelay = rand(0, 1) + "s";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 6500);
+  }
+}
+
+/* ===== INTRO BUTTON: reveal main site ===== */
+$("openBtn").onclick = () => {
+  $("intro").classList.add("hide");
+  document.body.classList.remove("lock");
+  $("main").classList.add("show");
+  burst(14);
+  setTimeout(() => $("intro").style.display = "none", 1000);
+};
+
+/* ===== HERO BUTTON: scroll to message ===== */
+$("talkBtn").onclick = () => $("msg").scrollIntoView({behavior: RM ? "auto" : "smooth"});
+
+/* ===== SCROLL REVEAL ===== */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+}, {threshold: .2});
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+/* ===== TYPEWRITER MESSAGE ===== */
+const MSG = [
+  "Dear Khush Bhaiya ❤️,", "",
+  "Thank you so much for teaching me how to create websites.", "",
+  "Bhaiya, aapne mujhe sirf website banana nahi sikhaya, balki ek nayi skill seekhne aur apne ideas ko reality mein badalne ka confidence bhi diya.", "",
+  "Aapki wajah se mujhe website development mein interest aaya aur maine khud kuch naya banana start kiya.", "",
+  "Ho sakta hai ye website perfect na ho, lekin maine ise dil se banaya hai, sirf aapko thank you bolne ke liye.", "",
+  "Thank you for your time, guidance, and for teaching me something new.", "",
+  "Aap mere bade bhai ho, aur aapse kuch naya seekhna mere liye bahut special hai.", "",
+  "Main aage bhi seekhta rahunga aur ek din aur bhi amazing websites banaunga!", "",
+  "THANK YOU SO MUCH, KHUSH BHAIYA! ❤️", "",
+  "With lots of love and respect,", "YOUR LITTLE BROTHER,", "DAKSH ❤️"
+];
+let skip = false, started = false;
+const box = $("msgbox");
+$("msgbox").addEventListener("click", () => skip = true);
+
+async function typeMessage() {
+  const cur = document.createElement("span");
+  cur.className = "cur";
+  for (const line of MSG) {
+    const p = document.createElement("p");
+    box.appendChild(p);
+    if (!line) { p.innerHTML = "&nbsp;"; p.style.fontSize = "10px"; continue; }
+    const tn = document.createTextNode("");
+    p.appendChild(tn); p.appendChild(cur);
+    const chars = Array.from(line);   // emoji ko safely handle karne ke liye
+    for (let i = 0; i < chars.length; i++) {
+      tn.data = chars.slice(0, i + 1).join("");
+      if (!skip && !RM) await sleep(22);
+    }
+    if (!skip && !RM) await sleep(300);
+  }
+  cur.remove();
+}
+// Typing tab start hogi jab message section screen par aayega
+new IntersectionObserver((en, ob) => {
+  if (en[0].isIntersecting && !started) { started = true; typeMessage(); ob.disconnect(); }
+}, {threshold: .35}).observe($("msgbox"));
+
+/* ===== ENVELOPE ===== */
+$("letterBtn").onclick = () => {
+  $("env").classList.add("open");
+  $("letter").classList.add("open");
+  burst(10);
+  setTimeout(() => $("letter").scrollIntoView({behavior: RM ? "auto" : "smooth", block: "center"}), 900);
+};
+
+/* ===== GRAND FINALE ===== */
+$("bestBtn").onclick = () => {
+  confetti(160);
+  burst(40);
+  const f = $("final");
+  f.classList.add("open");
+  f.querySelectorAll("p").forEach((p, i) => p.style.animationDelay = (0.5 + i * 0.9) + "s");
+  setTimeout(() => f.scrollIntoView({behavior: RM ? "auto" : "smooth", block: "center"}), 600);
+  // Heartfelt surprise: hearts ki barish aur zyada hone lagti hai
+  clearInterval(ambient);
+  ambient = setInterval(() => floatItem(["❤️","💖","💜","⭐","✨","🌟","💛","💗"]), 350);
+  setTimeout(() => confetti(100), 3500);
+};
+</script>
+</body>
+</html>
